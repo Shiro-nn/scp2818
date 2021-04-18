@@ -15,8 +15,9 @@ namespace scp2818
         public static string UserIDShooterDead = "";
         public override string Developer => "fydne";
         public override string Name => "SCP 2818";
-        public override Version Version => new Version(1, 0, 0);
+        public override Version Version => new Version(1, 0, 1);
         public override Version NeededQurreVersion => new Version(1, 3, 0);
+        public override int Priority => 10000;
         public override void Enable()
         {
             Qurre.Events.Round.WaitingForPlayers += WFP;
@@ -43,15 +44,13 @@ namespace scp2818
         }
         private void Damage(DamageEvent ev)
         {
-            try
+            if (ev.Attacker == null || ev.Target == null || ev.Attacker.UserId == null || ev.Target.UserId == null || ev.Target.PlayerStats == null) return;
+            if (ev.Attacker.UserId == UserIDShooterDead && ev.DamageType == DamageTypes.E11StandardRifle && ev.Attacker.UserId != ev.Target.UserId && ev.Allowed)
             {
-                if (ev.Attacker.UserId == UserIDShooterDead && ev.DamageType == DamageTypes.E11StandardRifle)
-                {
-                    ev.Target.PlayerStats.HurtPlayer(new PlayerStats.HitInfo(99999999, ev.Attacker.Nickname, DamageTypes.E11StandardRifle, ev.Attacker.Id), ev.Target.GameObject);
-                    UserIDShooterDead = "";
-                }
+                if (ev.Target.Team != Team.SCP) ev.Target.Kill(DamageTypes.E11StandardRifle);
+                else ev.Target.Kill(DamageTypes.Bleeding);
+                UserIDShooterDead = "";
             }
-            catch { }
         }
         private void PickupItem(PickupItemEvent ev)
         {
