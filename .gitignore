@@ -1,7 +1,3 @@
-
-.vs/scp2818/v16/.suo
-scp2818/bin/Debug/scp2818.dll
-scp2818/bin/Debug/scp2818.pdb
-scp2818/obj/Debug/scp2818.dll
-scp2818/obj/Debug/scp2818.pdb
-.vs/scp2818/v16/.suo
+scp2818/bin/*
+scp2818/obj/*
+.vs/*
