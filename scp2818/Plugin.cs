@@ -56,8 +56,7 @@ namespace scp2818
         {
             if (ev.Pickup.durability == 2818 && ev.Pickup.ItemId == ItemType.GunE11SR)
             {
-                ev.Player.ShowHint("<b><color=red>Вы подобрали SCP 2818</color></b>\n<i><color=yellow><size=+250%>Выстрел убьет вас.</size></color></i>", 5);
-                //ev.Player.ShowHint(Config.GetString("scp2818_pickup", "<b><color=red>You picked up SCP 2818</color></b>"), 5);
+                ev.Player.ShowHint(Config.GetString("scp2818_pickup", "<b><color=red>You picked up SCP 2818</color></b>"), 5);
                 UserIDShooterDead = "";
             }
         }
