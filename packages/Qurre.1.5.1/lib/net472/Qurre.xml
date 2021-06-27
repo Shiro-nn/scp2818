@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Qurre</name>
+    </assembly>
+    <members>
+        <member name="M:Qurre.API.Audio.Play(System.IO.Stream,System.Single)">
+            <summary>
+            <para>Plays music from the stream.</para>
+            <para>format - WaveFormat(48000, 1) /*(.ogg)*/</para>
+            <para>Example:</para>
+             <example>
+             <code>
+             Play(new MemoryStream(audio), 1);
+             </code>
+             </example>
+            </summary>
+        </member>
+        <member name="M:Qurre.API.Audio.PlayFromFile(System.String,System.Single)">
+            <summary>
+            <para>Plays music from a file.</para>
+            <para>format - WaveFormat(48000, 1) /*(.ogg)*/</para>
+            <para>Example:</para>
+             <example>
+             <code>
+             PlayFromFile($"{PluginManager.PluginsDirectory}/audio/OmegaWarhead.raw", 1);
+             </code>
+             </example>
+            </summary>
+        </member>
+        <member name="M:Qurre.API.Audio.PlayFromUrl(System.String,System.Single)">
+            <summary>
+            <para>Plays music from a link.</para>
+            <para>format - WaveFormat(48000, 1) /*(.ogg)*/</para>
+            <para>Example:</para>
+             <example>
+             <code>
+             PlayFromUrl("https://cdn.scpsl.store/qurre/audio/OmegaWarhead.raw", 1);
+             </code>
+             </example>
+            </summary>
+        </member>
+    </members>
+</doc>

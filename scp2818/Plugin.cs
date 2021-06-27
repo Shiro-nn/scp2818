@@ -15,9 +15,10 @@ namespace scp2818
         public static string UserIDShooterDead = "";
         public override string Developer => "fydne";
         public override string Name => "SCP 2818";
-        public override Version Version => new Version(1, 0, 1);
-        public override Version NeededQurreVersion => new Version(1, 3, 0);
+        public override Version Version => new Version(1, 0, 2);
+        public override Version NeededQurreVersion => new Version(1, 5, 0);
         public override int Priority => 10000;
+        private string Text = Config.GetString("scp2818_pickup", "<b><color=red>You picked up SCP 2818</color></b>\n<i><color=yellow><size=+250%>The shot will kill you.</size></color></i>");
         public override void Enable()
         {
             Qurre.Events.Round.WaitingForPlayers += WFP;
@@ -34,7 +35,7 @@ namespace scp2818
         }
         private void Shoot(ShootingEvent ev)
         {
-            if(ev.Shooter.Inventory.GetItemInHand().durability == 2818 && ev.WeaponType == WeaponType.Epsilon11)
+            if (ev.Shooter.Inventory.GetItemInHand().durability == 2818 && ev.WeaponType == WeaponType.Epsilon11)
             {
                 ev.Shooter.Inventory.items.ModifyDuration(ev.Shooter.Inventory.items.IndexOf(ev.Shooter.Inventory.GetItemInHand()), 2819);
                 UserIDShooterDead = ev.Shooter.UserId;
@@ -56,7 +57,7 @@ namespace scp2818
         {
             if (ev.Pickup.durability == 2818 && ev.Pickup.ItemId == ItemType.GunE11SR)
             {
-                ev.Player.ShowHint(Config.GetString("scp2818_pickup", "<b><color=red>You picked up SCP 2818</color></b>"), 5);
+                ev.Player.ShowHint(Text, 5);
                 UserIDShooterDead = "";
             }
         }
