@@ -15,9 +15,9 @@ namespace scp2818
         public static string UserIDShooterDead = "";
         public override string Developer => "fydne";
         public override string Name => "SCP 2818";
-        public override Version Version => new Version(1, 0, 2);
-        public override Version NeededQurreVersion => new Version(1, 5, 0);
-        public override int Priority => 10000;
+        public override Version Version => new Version(1, 0, 3);
+        public override Version NeededQurreVersion => new Version(1, 6, 0);
+        public override int Priority => -10000;
         private string Text = Config.GetString("scp2818_pickup", "<b><color=red>You picked up SCP 2818</color></b>\n<i><color=yellow><size=+250%>The shot will kill you.</size></color></i>");
         public override void Enable()
         {

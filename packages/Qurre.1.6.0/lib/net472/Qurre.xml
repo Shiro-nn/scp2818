@@ -40,5 +40,11 @@
              </example>
             </summary>
         </member>
+        <member name="P:Qurre.Plugin.Priority">
+            <summary>
+            <para>Plugin load priority.</para>
+            <para>The higher the number, the earlier the plugin will load.</para>
+            </summary>
+        </member>
     </members>
 </doc>
